@@ -1,0 +1,19 @@
+<div class="text-center my-4">
+  @if (countdown !== 0) {
+
+    <span class="countdown">
+      <span [style.--value]="countdown"></span>
+    </span>
+
+}
+  <h3>{{ message }}</h3>
+  <div class="flex ">
+  @for (player of gameService.playerSequence ; track player) {
+    <div class="rounded-full me-1" [style.background-color]="player" style="width: 40px ; height: 40px">
+
+    </div>
+  }
+  </div>
+  <h3>Score: {{ score }}</h3>
+</div>
+

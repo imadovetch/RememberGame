@@ -1,0 +1,27 @@
+<div class="text-center my-3">
+  @if (!IsPlay) {
+<button (click)="onStartGame()" class="btn btn-success">Start</button>
+}
+  @if (EndGame) {
+<button (click)="onRestGame()" class="btn btn-info ms-3">Reset Game</button>
+}
+  @if (countdown === 0 && IsPlay && !EndGame) {
+
+    <button
+      [disabled]="gameService.playerSequence.length === 0"
+      (click)="onResetPlayerSequence()"
+      class="btn btn-info ms-3"
+    >
+      Replay
+    </button>
+    <button
+      [disabled]="gameService.playerSequence.length === 0"
+      (click)="onIsGood()"
+      class="btn btn-accent ms-3"
+    >
+      Go
+    </button>
+  
+}
+</div>
+
