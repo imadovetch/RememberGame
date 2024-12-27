@@ -1,0 +1,85 @@
+<app-commands
+  [IsPlay]="IsPlay"
+  [EndGame]="EndGame"
+  [countdown]="countdown"
+  (startGame)="startGame()"
+  (resetGame)="RestGame()"
+  (resetPlayerSequence)="ResetPlayerSequence()"
+  (checkSequence)="IsGood()"
+></app-commands>
+
+<app-score
+  [countdown]="countdown"
+  [message]="message"
+  [score]="score"
+></app-score>
+
+@if (EndGame){
+  <dialog id="my_modal_1" class="modal" open>
+    <div class="modal-box">
+      <h3 class="text-lg font-bold">Hello!</h3>
+      <p class="py-4 flex justify-center">
+        <button class="btn">
+          Score
+          <div class="badge badge-secondary">{{score}}</div>
+        </button>
+      </p>
+    <div class="flex justify-center">
+      @if (score <= 50){
+        <label class="swap text-6xl">
+          <div class="swap-off">🥶</div>
+        </label>
+      }@else{
+        <label class="swap swap-active text-6xl">
+          <div class="swap-on">🥳</div>
+        </label>
+      }
+
+    </div>
+      <div class="modal-action">
+        <form method="dialog">
+          <button class="btn">Close</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+}
+
+
+<div class=" p-5 grid gap-4 boxPlay" [ngStyle]="{
+  'grid-template-columns': 'repeat(' + getColumnCount() + ', 1fr)'
+}">
+
+  @if (StartAnswers) {
+
+    @for (color of randomizedSequence; track color) {
+<app-box-color
+
+
+      (click)="handlePlayerClick(color)"
+      [color]="color"
+      [Border]="Border"
+      [width]="getDynamicSize() - (getDynamicSize() * 0.35)"
+      [height]="getDynamicSize() - (getDynamicSize() * 0.35)"
+      [isRandomized]="true"
+
+    >
+    </app-box-color>
+}
+
+} @else {
+
+    @for (color of gameSequence; track color) {
+<app-box-color
+
+      [color]="color"
+      [Border]="Border"
+      [width]="getDynamicSize() - (getDynamicSize() * 0.35)"
+      [height]="getDynamicSize() - (getDynamicSize() * 0.35)">
+    </app-box-color>
+}
+
+}
+
+
+</div>

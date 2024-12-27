@@ -1,0 +1,12 @@
+<div
+  [@colorAnimation]="currentState"
+  [ngStyle]="{'background-color': color, 'width.px': width, 'height.px': height}"
+  [class]="Border"
+  class="color-box"
+  [class.randomized-hover]="isRandomized"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+
+
+>
+</div>

@@ -1,0 +1,9 @@
+/* body.component.css */
+.boxPlay {
+  display: grid;
+  gap: 10px;
+  overflow: hidden;
+
+}
+
+

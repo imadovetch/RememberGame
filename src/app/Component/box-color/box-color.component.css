@@ -1,0 +1,21 @@
+.Color {
+
+  margin: 2px;
+
+}
+.Color:hover {
+  background-color: #ff6347; /* Change to your desired hover color */
+  transform: scale(1.05); /* Example of a scaling effect */
+}
+
+/* Default hover effect */
+.randomized-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.randomized-hover:hover {
+
+  cursor: pointer;
+}
+
